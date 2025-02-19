@@ -40,7 +40,7 @@ a:hover {
 }
 
 main {
-    background: url(img/astronaut-1784245_1920.jpg);
+    background: url('../img/astronaut-1784245_1920.jpg');
     min-height: 80vh;
 }
 
