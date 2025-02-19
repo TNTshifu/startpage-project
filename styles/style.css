@@ -4,8 +4,8 @@ html, body {
 }
 
 body {
-    min-height: 95vh;
-    background-color: rgb(239, 255, 250);
+    min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
+    background-color: rgb(255, 255, 255);
     font-family: 'Rubik-normal', sans-serif;
 }
 
@@ -27,14 +27,66 @@ nav {
 
 a {
     text-decoration: none;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 a:hover {
     text-decoration: underline;
-    color: rgb(255, 123, 34);
+    color: coral;
 }
 
 .logo {
     margin-left: 2rem;
+}
+
+main {
+    background: url(img/astronaut-1784245_1920.jpg);
+    min-height: 80vh;
+}
+
+main h1 {
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 0); /* Center horizontally by using negative half of the element's width */
+
+}
+
+.call-to-action {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, 0);
+}
+
+footer {
+    min-height: 10vh;
+    line-height: 10vh;
+    text-align: center; /* Centers inline content inside a block element */
+}
+
+@font-face {
+    font-family: 'Rubik-normal';
+    src: url('fonts/Rubik/static/Rubik-Regular.ttf');
+}
+
+/* This is a media query, which allows us to change the rules when the browser window is less than 701px wide */
+@media screen and (max-width: 700px) {
+
+    nav {
+        position: static;
+        display: block;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    nav a { /* select all a elements but only if they are inside a nav */
+        display: block;
+    }
 }
