@@ -1,3 +1,16 @@
+#datetime {
+    font-family: sans-serif;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+      /* Add any other styles you want here */
+    color: #333; /* Example text color */
+    background-color: #f0f0f0; /* Example background color */
+     padding: 10px; /* Example padding */
+     border: 1px solid #ccc; /* Example border */
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -23,6 +36,11 @@ header {
 nav {
     position: absolute;
     right: 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 a {
