@@ -1,6 +1,6 @@
 #datetime {
-    font-family: sans-serif;
-    font-size: 2em;
+    font-family: 'Nunito_Sans-Medium', sans-serif;
+    font-size: 1em;
     text-align: center;
     margin-top: 20px;
       /* Add any other styles you want here */
@@ -19,7 +19,7 @@ html, body {
 body {
     min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
     background-color: rgb(255, 255, 255);
-    font-family: 'Rubik-normal', sans-serif;
+    font-family: 'Oswald-Regular', sans-serif;
 }
 
 .logo, nav {
@@ -41,6 +41,23 @@ nav {
 h1 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+h2 {
+    font-family: 'Oswald-Light', sans-serif;
+    color: white;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+h3 {
+    font-family: 'Oswald-Light', sans-serif;
+    color: white;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 0;
+    padding-left: 18px;
+
 }
 
 a {
@@ -81,6 +98,55 @@ main h1 {
     transform: translate(-50%, 0);
 }
 
+.container {
+    display: flex; /* Enable flexbox */
+    justify-content: space-around; /* Distribute columns evenly */
+    gap: 20px; /* Space between columns */
+    padding: 20px;
+    margin-top: 100px;
+
+  }
+  
+  .column {
+    flex: 1; /* Each column takes equal width */
+    border: 1px solid #ccc; /* Optional border */
+    padding: 20px;
+    background-color: rgba(105, 128, 158,  0.5);
+    border-radius: 10px;
+    border: none;
+}
+
+.column a:hover {
+    text-decoration: none;
+    color: coral;
+}
+
+  .column h2 {
+      text-align: center;
+  }
+  
+  .column ul {
+      list-style-type: none; /* remove bullet points */
+      padding: 0;
+  }
+  
+  .column li {
+      margin-bottom: 10px;
+  }
+
+  .column a {
+    text-decoration: none;
+    font-family: 'Nunito_Sans-Medium';
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
+
+  ol {
+    list-style-type: none; /* Removes the numbers */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margins */
+  }
+
 footer {
     min-height: 10vh;
     line-height: 10vh;
@@ -88,8 +154,33 @@ footer {
 }
 
 @font-face {
-    font-family: 'Rubik-normal';
-    src: url('fonts/Rubik/static/Rubik-Regular.ttf');
+    font-family: 'Oswald-SemiBold';
+    src: url('../fonts/Oswald/static/Oswald-SemiBold.ttf') format('truetype'); /* TTF format */
+    font-weight: normal; /* Or the correct font-weight */
+    font-style: normal; /* Or the correct font-style */
+}
+
+@font-face {
+    font-family: 'Oswald-Regular';
+    src: url('../fonts/Oswald/static/Oswald-Regular.ttf') format('truetype'); /* TTF format */
+    font-weight: normal; /* Or the correct font-weight */
+    font-style: normal; /* Or the correct font-style */
+}
+
+@font-face {
+    font-family: 'Oswald-Light';
+    src: url('../fonts/Oswald/static/Oswald-Light.ttf') format('truetype'); /* TTF format */
+    font-weight: normal; /* Or the correct font-weight */
+    font-style: normal; /* Or the correct font-style */
+}
+
+
+
+@font-face {
+    font-family: 'Nunito_Sans-Medium';
+    src: url('../fonts/Nunito_Sans/static/NunitoSans_10pt-Medium.ttf') format('truetype'); /* TTF format */
+    font-weight: normal; /* Or the correct font-weight */
+    font-style: normal; /* Or the correct font-style */
 }
 
 /* This is a media query, which allows us to change the rules when the browser window is less than 701px wide */
@@ -108,3 +199,12 @@ footer {
         display: block;
     }
 }
+
+
+/* The below deals with flexboox so that it will stack the columns vertically on mobile */
+@media (max-width: 768px) { /* Example breakpoint */
+    .container {
+      flex-direction: column; /* Stack columns vertically (Flexbox) */
+      grid-template-columns: 1fr; /* Single column (Grid) */
+    }
+  }
