@@ -2,7 +2,7 @@
     font-family: 'Nunito_Sans-Medium', sans-serif;
     font-size: 1em;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
       /* Add any other styles you want here */
     color: #333; /* Example text color */
     background-color: #f0f0f0; /* Example background color */
@@ -88,6 +88,57 @@ main h1 {
 
 }
 
+.list-page main { /* Styles for the about page */
+    background: url('../img/winter-6897046_1920.jpg'); /* Or a different color */
+    /* ... other styles if needed ... */
+    font-family: sans-serif;
+    margin: 20px;
+
+  }
+  
+  #new-task-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#category-select {
+    margin-right: 10px;
+}
+
+.task-list {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.task-list h2 {
+    margin-top: 0;
+}
+
+.task-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.task-list li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+  .calculators-page main { /* Styles for the contact page */
+    background: url('../img/earth-1756274_1920.jpg'); /* Different image */
+    background-color: lightblue; /* Or a color */
+    /* ... other styles ... */
+  }
+
+
+
 .call-to-action {
     background-color: white;
     padding: 1rem;
@@ -107,13 +158,15 @@ main h1 {
 
   }
   
-  .column {
+  .column {  /* columns with glassmorphism effect*/
     flex: 1; /* Each column takes equal width */
     border: 1px solid #ccc; /* Optional border */
     padding: 20px;
-    background-color: rgba(105, 128, 158,  0.5);
+    background-color: rgba(105, 128, 158,  0.2);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur the background */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
     border-radius: 10px;
-    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
 }
 
 .column a:hover {
