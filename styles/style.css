@@ -1,5 +1,6 @@
 .content-wrapper {
     padding: 10px;
+    border: 1px;
 }
 
 
@@ -7,12 +8,12 @@
     font-family: 'Nunito_Sans-Medium', sans-serif;
     font-size: 1em;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
       /* Add any other styles you want here */
     color: #ffffff; /* Example text color */
     background-color: none; /* Example background color */
      padding: 10px; /* Example padding */
-     padding-top: 100px;
+     padding-top: 80px;
      border: none; /* Example border */
 }
 
@@ -60,6 +61,7 @@ nav a:hover {
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 0;
 }
 
 h2 {
@@ -172,21 +174,33 @@ main h1 {
     display: flex; /* Enable flexbox */
     justify-content: space-around; /* Distribute columns evenly */
     gap: 20px; /* Space between columns */
-    padding: 20px;
-    margin-top: 100px;
-
+    padding: 0; /* Remove padding if you're using max-width */
+    max-width: 1200px; /* Adjust this value as needed */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+    margin-bottom: 20px; /* Space between container and first column */
   }
+
   
   .column {  /* columns with glassmorphism effect*/
     flex: 1; /* Each column takes equal width */
-    border: 1px solid #ccc; /* Optional border */
-    padding: 20px;
-    background-color: rgba(105, 128, 158,  0.2);/* Semi-transparent background */
+    padding: 5px;
+    background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
     backdrop-filter: blur(10px); /* Blur the background */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    border: 1px solid rgba(234, 211, 255, 0.2); /* Subtle border */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
     list-style-type: none;
+}
+
+.first-column { /* first column with glassmorphism effect*/
+    flex: 1; /* Each column takes equal width */
+    padding: 5px;
+    background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur the background */
+    border: 1px solid rgba(234, 211, 255, 0.2); /* Subtle border */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */ 
 }
 
 .column a:hover {
@@ -196,6 +210,7 @@ main h1 {
 
   .column h2 {
       text-align: center;
+      margin-top: 20px;
   }
   
   .column ul {
