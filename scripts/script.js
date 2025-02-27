@@ -21,7 +21,27 @@ setInterval(updateDateTime, 1000);
 
 // Time and date js, end
 
+// Searchbar js, start
+document.getElementById('search-form').addEventListener('submit', function(event) {
+    const searchInput = document.getElementById('search-input').value;
+    if (isUrl(searchInput)) {
+        window.location.href = addHttpIfNecessary(searchInput);
+        event.preventDefault(); // Prevent default form submission
+    }
+});
 
+function isUrl(str) {
+    const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    return urlPattern.test(str);
+}
+
+function addHttpIfNecessary(url) {
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        return 'https://' + url;
+    }
+    return url;
+}
+// Searchbar js, end
 
 // Todolist js, start
 

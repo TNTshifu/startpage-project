@@ -8,12 +8,12 @@
     font-family: 'Nunito_Sans-Medium', sans-serif;
     font-size: 1em;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 100px;
       /* Add any other styles you want here */
     color: #ffffff; /* Example text color */
     background-color: none; /* Example background color */
-     padding: 10px; /* Example padding */
-     padding-top: 80px;
+     padding: 0px; /* Example padding */
+     padding-top: 0px;
      border: none; /* Example border */
 }
 
@@ -60,7 +60,7 @@ nav a:hover {
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     margin-top: 0;
 }
 
@@ -202,6 +202,52 @@ main h1 {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */ 
 }
+
+
+/* Searchbar css starts*/
+
+#search-container {
+    text-align: center;
+    margin: 25px auto;
+    width: 600px; /* Adjust width as needed */
+}
+
+#search-form {
+    display: flex; /* Enable Flexbox on the form */
+    align-items: center; /* Vertically align items */
+  }
+
+#search-input {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* Round left corners */
+    font-size: 16px;
+    border-right: none; /* Remove right border */
+}
+
+#search-input:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 6px rgb(255, 255, 255); /* Add a glow */
+  }
+
+#search-button {
+    padding: 11px 20px;
+    background-color: rgba(68, 63, 123, 1);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0; /* Round right corners */
+    font-size: 16px;
+    cursor: pointer;
+    border-left: none; /* remove left border */
+}
+
+#search-button:hover {
+    box-shadow: 0 0 6px rgb(255, 255, 255); /* Add a glow */
+}
+
+/* Searchbar css ends*/
+
 
 .column a:hover {
     text-decoration: none;
