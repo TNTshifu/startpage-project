@@ -1,3 +1,5 @@
+/* ... HOME-PAGE STYLES START ... */
+
 .content-wrapper {
     padding: 10px;
     border: 1px;
@@ -110,53 +112,10 @@ main h1 {
 
 }
 
-.list-page main { /* Styles for the about page */
-    background: url('../img/winter-6897046_1920.jpg'); /* Or a different color */
-    /* ... other styles if needed ... */
-    font-family: sans-serif;
-
-  }
-  
-  #new-task-form {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-#category-select {
-    margin-right: 10px;
-}
-
-.task-list {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.task-list h2 {
-    margin-top: 0;
-}
-
-.task-list ul {
-    list-style: none;
-    padding: 0;
-}
-
-.task-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.task-list li input[type="checkbox"] {
-    margin-right: 10px;
-}
 
 
-  .calculators-page main { /* Styles for the contact page */
-    background: url('../img/abstract1.png'); /* Different image */
-    background-color: lightblue; /* Or a color */
-    /* ... other styles ... */
-  }
+
+
 
 
 
@@ -249,6 +208,9 @@ main h1 {
 /* Searchbar css ends*/
 
 
+
+
+
 .column a:hover {
     text-decoration: none;
     color: rgb(149, 197, 172);
@@ -322,6 +284,101 @@ footer {
     font-style: normal; /* Or the correct font-style */
 }
 
+
+/* ... HOME-PAGE STYLES END ... */
+
+
+
+
+
+
+/* ... LIST-PAGE STYLES START ... */
+
+.list-page main { /* Styles for the list page */
+    background: url('../img/winter-6897046_1920.jpg'); /* Or a different color */
+    font-family: sans-serif;
+    display: flex; /* Use flexbox to center the content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+  }
+  
+  .container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Limit container width */
+}
+
+.column {
+    /* No need for flex: 1 here, as there is only one column */
+}
+
+  #new-task-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#category-select {
+    margin-right: 10px;
+}
+
+.task-list {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.task-list h2 {
+    margin-top: 0;
+}
+
+.task-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.task-list li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-list li span.completed {
+    text-decoration: line-through; /* Add line-through for completed tasks */
+    color: #888; /* Make completed tasks appear faded */
+}
+
+
+/* ... LIST-PAGE STYLES END! ... */
+
+
+
+
+
+/* ... CALCULATORS-PAGE STYLES START! ... */
+
+  .calculators-page main { /* Styles for the contact page */
+    background: url('../img/abstract1.png'); /* Different image */
+    background-color: lightblue; /* Or a color */
+    /* ... other styles ... */
+  }
+
+/* ... CALCULATORS-PAGE STYLES END! ... */
+
+
+
+
+
+
+
+/* ... MEDIA QUERY STYLES START! ... */
+
 /* This is a media query, which allows us to change the rules when the browser window is less than 701px wide */
 @media screen and (max-width: 700px) {
 
@@ -347,3 +404,5 @@ footer {
       grid-template-columns: 1fr; /* Single column (Grid) */
     }
   }
+
+  /* ... MEDIA QUERY STYLES END! ... */
