@@ -10,7 +10,6 @@
 
 .content-wrapper {
     padding: 10px;
-    border: 1px;
 }
 
 
@@ -53,7 +52,7 @@ header {
     min-height: 6vh;
     line-height: 6vh;
     font-size: 1 rem;
-    background-color: rgba(68, 63, 123, 1)
+    background-color: var(--primary-color);
 }
 
 nav {
@@ -139,20 +138,20 @@ main h1 {
     transform: translate(-50%, 0);
 }
 
-.container {
-    display: flex; /* Enable flexbox */
-    justify-content: space-around; /* Distribute columns evenly */
-    gap: 20px; /* Space between columns */
-    padding: 0; /* Remove padding if you're using max-width */
-    max-width: 1200px; /* Adjust this value as needed */
-    margin-left: auto; /* Center the container */
-    margin-right: auto; /* Center the container */
-    margin-bottom: 20px; /* Space between container and first column */
-  }
+.index-container {
+    display: flex; /* Horizontal stacking */
+    justify-content: space-around;
+    gap: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
 
-  
+.index-container .column {
+    flex: 1;
+}
   .column {  /* columns with glassmorphism effect*/
-    flex: 1; /* Each column takes equal width */
     padding: 5px;
     background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
     backdrop-filter: blur(10px); /* Blur the background */
@@ -162,8 +161,11 @@ main h1 {
     list-style-type: none;
 }
 
+.index-container .first-column {
+    flex: 1;/* Each column takes equal width */
+}
+
 .first-column { /* first column with glassmorphism effect*/
-    flex: 1; /* Each column takes equal width */
     padding: 5px;
     background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
     backdrop-filter: blur(10px); /* Blur the background */
@@ -259,7 +261,7 @@ footer {
     left: 0;
     width: 100%;
     min-height: 40px;
-    background-color: rgba(68, 63, 123, 1);
+    background-color: var(--primary-color);
     z-index: 10;
     text-align: center; /* Centers inline content inside a block element */
 }
@@ -307,26 +309,20 @@ footer {
 .list-page main { /* Styles for the list page */
     background: url('../img/winter-6897046_1920.jpg'); /* Or a different color */
     font-family: sans-serif;
-    display: flex; /* Use flexbox to center the content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
     min-height: 85vh;
     padding-bottom: 50px;
   }
 
-.container {
-    display: flex; /* Enable flexbox */
-    justify-content: space-around; /* Distribute columns evenly */
-    gap: 20px; /* Space between columns */
-    padding: 0; /* Remove padding if you're using max-width */
-    max-width: 1200px; /* Adjust this value as needed */
-    margin-left: auto; /* Center the container */
-    margin-right: auto; /* Center the container */
-    margin-bottom: 20px; /* Space between container and first column */
-  }
+  .lists-container {
+    display: block; /* Vertical stacking */
+    margin-bottom: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .first-column { /* first column with glassmorphism effect*/
-    flex: 1; /* Each column takes equal width */
     padding: 5px;
     background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
     backdrop-filter: blur(10px); /* Blur the background */
@@ -335,7 +331,6 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */ 
 }
 .column {  /* columns with glassmorphism effect*/
-    flex: 1; /* Each column takes equal width */
     padding: 5px;
     background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
     backdrop-filter: blur(10px); /* Blur the background */
@@ -395,7 +390,7 @@ footer {
 
   .calculators-page main { /* Styles for the contact page */
     background: url('../img/abstract1.png'); /* Different image */
-    background-color: lightblue; /* Or a color */
+    background-color: var(--background-color);
     /* ... other styles ... */
   }
 
