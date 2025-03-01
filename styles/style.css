@@ -1,5 +1,13 @@
 /* ... HOME-PAGE STYLES START ... */
 
+:root {
+    --primary-color: rgba(68, 63, 123, 1);
+    --text-color: white;
+    --background-color: #f0f0f0;
+    --font-size-base: 16px;
+    --accent-color: rgb(149, 197, 172);
+}
+
 .content-wrapper {
     padding: 10px;
     border: 1px;
@@ -27,10 +35,12 @@ html, body {
 
 body {
     min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
-    background-color: rgb(255, 255, 255);
+    background-color: var(--background-color);
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Oswald-Regular', sans-serif;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
 }
 
 .logo, nav {
@@ -57,7 +67,7 @@ nav a {
 }
 
 nav a:hover {
-    color: rgb(149, 197, 172);
+    color: var(--accent-color);
 }
 
 h1 {
@@ -90,7 +100,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: rgb(149, 197, 172);
+    color: var(--accent-color);
 }
 
 .logo {
@@ -192,8 +202,8 @@ main h1 {
 
 #search-button {
     padding: 11px 20px;
-    background-color: rgba(68, 63, 123, 1);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border: none;
     border-radius: 0 4px 4px 0; /* Round right corners */
     font-size: 16px;
@@ -213,7 +223,7 @@ main h1 {
 
 .column a:hover {
     text-decoration: none;
-    color: rgb(149, 197, 172);
+    color: var(--accent-color);
 }
 
   .column h2 {
@@ -300,21 +310,40 @@ footer {
     display: flex; /* Use flexbox to center the content */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    min-height: 100vh; /* Ensure full viewport height */
+    min-height: 85vh;
+    padding-bottom: 50px;
   }
-  
-  .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the container */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Limit container width */
-}
 
-/* ... 
-.column {
-    /* No need for flex: 1 here, as there is only one column */
-/* ... */
+.container {
+    display: flex; /* Enable flexbox */
+    justify-content: space-around; /* Distribute columns evenly */
+    gap: 20px; /* Space between columns */
+    padding: 0; /* Remove padding if you're using max-width */
+    max-width: 1200px; /* Adjust this value as needed */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+    margin-bottom: 20px; /* Space between container and first column */
+  }
+
+.first-column { /* first column with glassmorphism effect*/
+    flex: 1; /* Each column takes equal width */
+    padding: 5px;
+    background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur the background */
+    border: 1px solid rgba(234, 211, 255, 0.2); /* Subtle border */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */ 
+}
+.column {  /* columns with glassmorphism effect*/
+    flex: 1; /* Each column takes equal width */
+    padding: 5px;
+    background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur the background */
+    border: 1px solid rgba(234, 211, 255, 0.2); /* Subtle border */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    list-style-type: none;
+}
 
 #new-task-form {
     display: flex;
@@ -329,6 +358,7 @@ footer {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 .task-list h2 {
@@ -352,7 +382,7 @@ footer {
 
 .task-list li span.completed {
     text-decoration: line-through; /* Add line-through for completed tasks */
-    color: #888; /* Make completed tasks appear faded */
+    color: #728578; /* Make completed tasks appear faded */
 }
 
 /* ... LIST-PAGE STYLES END! ... */
