@@ -357,7 +357,7 @@ footer {
 .task-list {
     border: 1px solid #ccc;
     padding: 10px;
-    margin-bottom: 20px;
+    margin: 20px;
     border-radius: 8px;
 }
 
@@ -370,11 +370,31 @@ footer {
     padding: 0;
 }
 
-.task-list li {
+.task-list ul li {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
 }
+
+.task-list ul li label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.task-list ul li.task-item {
+    background-color: rgba(192, 192, 192, 0.5);
+    border-radius: 8px;
+}
+
+.delete-task {
+    padding: 5px 10px;
+    background-color: rgb(54, 83, 163);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 
 .task-list li input[type="checkbox"] {
     margin-right: 10px;

@@ -78,9 +78,10 @@ if (taskLists) { // Check if taskLists exists before running to-do list code
                 <label>
                     <input type="checkbox" name="${category}-task" id="${taskId}">
                     <span>${taskDescription}</span>
-                    <button class="delete-task" aria-label="Delete task">Delete</button>
                 </label>
+                <button class="delete-task" aria-label="Delete task">Delete</button>
                 `;
+                newTask.classList.add("task-item"); // Add CSS class
                 console.log("New Task:", newTask);
                 taskList.appendChild(newTask);
                 newTaskInput.value = '';
@@ -160,9 +161,10 @@ function loadTasksFromLocalStorage() {
                     <label>
                         <input type="checkbox" ${task.checked ? 'checked' : ''} name="${category}-task" id="${taskId}">
                         <span ${task.completed ? 'class="completed"' : ''}>${task.text}</span>
-                        <button class="delete-task" aria-label="Delete task">Delete</button>
                     </label>
+                    <button class="delete-task" aria-label="Delete task">Delete</button>
                 `;
+                newTask.classList.add("task-item"); // Add CSS class
                 taskList.appendChild(newTask);
             });
         }
