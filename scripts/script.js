@@ -60,7 +60,7 @@ if (taskLists) { // Check if taskLists exists before running to-do list code
     // Load tasks from local storage
     loadTasksFromLocalStorage();
 
-    addTaskButton.addEventListener('click', () => { // Corrected: One addTaskButton listener
+    addTaskButton.addEventListener('click', () => {
         const category = categorySelect.value;
         const taskDescription = newTaskInput.value;
 
@@ -73,11 +73,14 @@ if (taskLists) { // Check if taskLists exists before running to-do list code
 
             if (taskList) {
                 const newTask = document.createElement('li');
+                const taskId = `${category}-task-${Date.now()}`; // Generate a unique ID
                 newTask.innerHTML = `
-                    <input type="checkbox">
+                <label>
+                    <input type="checkbox" name="${category}-task" id="${taskId}">
                     <span>${taskDescription}</span>
-                    <button class="delete-task">Delete</button>
-                `; // Added delete button here
+                    <button class="delete-task" aria-label="Delete task">Delete</button>
+                </label>
+                `;
                 console.log("New Task:", newTask);
                 taskList.appendChild(newTask);
                 newTaskInput.value = '';
@@ -125,10 +128,13 @@ function saveTasksToLocalStorage() {
         const taskItems = [];
 
         taskListElement.querySelectorAll('li').forEach(li => {
-            const taskText = li.querySelector('span').textContent;
-            const isChecked = li.querySelector('input[type="checkbox"]').checked;
-            const isCompleted = li.querySelector('span').classList.contains('completed'); // Check for the 'completed' class
-            taskItems.push({ text: taskText, checked: isChecked, completed: isCompleted }); // Store the completed state
+            const spanElement = li.querySelector('span'); // Get the span element
+            if (spanElement) { // Check if the span element exists
+                const taskText = spanElement.textContent;
+                const isChecked = li.querySelector('input[type="checkbox"]').checked;
+                const isCompleted = spanElement.classList.contains('completed');
+                taskItems.push({ text: taskText, checked: isChecked, completed: isCompleted });
+            }
         });
 
         tasks[category] = taskItems;
@@ -147,12 +153,15 @@ function loadTasksFromLocalStorage() {
 
         if (taskList) {
             taskList.innerHTML = ''; // Clear existing tasks
-            taskItems.forEach(task => {
+            taskItems.forEach((task, index) => { // Include 'index' as a parameter
+                const taskId = `${category}-task-${Date.now() + index}`; // Generate a unique ID
                 const newTask = document.createElement('li');
                 newTask.innerHTML = `
-                    <input type="checkbox" ${task.checked ? 'checked' : ''}>
-                    <span ${task.completed ? 'class="completed"' : ''}>${task.text}</span>
-                    <button class="delete-task">Delete</button>
+                    <label>
+                        <input type="checkbox" ${task.checked ? 'checked' : ''} name="${category}-task" id="${taskId}">
+                        <span ${task.completed ? 'class="completed"' : ''}>${task.text}</span>
+                        <button class="delete-task" aria-label="Delete task">Delete</button>
+                    </label>
                 `;
                 taskList.appendChild(newTask);
             });
