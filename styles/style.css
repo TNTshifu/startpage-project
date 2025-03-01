@@ -311,11 +311,12 @@ footer {
     max-width: 800px; /* Limit container width */
 }
 
+/* ... 
 .column {
     /* No need for flex: 1 here, as there is only one column */
-}
+/* ... */
 
-  #new-task-form {
+#new-task-form {
     display: flex;
     margin-bottom: 20px;
 }
@@ -353,7 +354,6 @@ footer {
     text-decoration: line-through; /* Add line-through for completed tasks */
     color: #888; /* Make completed tasks appear faded */
 }
-
 
 /* ... LIST-PAGE STYLES END! ... */
 
