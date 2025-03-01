@@ -117,7 +117,8 @@ function saveTasksToLocalStorage() {
         taskListElement.querySelectorAll('li').forEach(li => {
             const taskText = li.querySelector('span').textContent;
             const isChecked = li.querySelector('input[type="checkbox"]').checked;
-            taskItems.push({ text: taskText, checked: isChecked });
+            const isCompleted = li.querySelector('span').classList.contains('completed'); // Check for the 'completed' class
+            taskItems.push({ text: taskText, checked: isChecked, completed: isCompleted }); // Store the completed state
         });
 
         tasks[category] = taskItems;
@@ -140,7 +141,7 @@ function loadTasksFromLocalStorage() {
                 const newTask = document.createElement('li');
                 newTask.innerHTML = `
                     <input type="checkbox" ${task.checked ? 'checked' : ''}>
-                    <span>${task.text}</span>
+                    <span ${task.completed ? 'class="completed"' : ''}>${task.text}</span>
                 `;
                 taskList.appendChild(newTask);
             });
