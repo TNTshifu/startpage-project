@@ -60,7 +60,7 @@ if (taskLists) { // Check if taskLists exists before running to-do list code
     // Load tasks from local storage
     loadTasksFromLocalStorage();
 
-    addTaskButton.addEventListener('click', () => {
+    addTaskButton.addEventListener('click', () => { // Corrected: One addTaskButton listener
         const category = categorySelect.value;
         const taskDescription = newTaskInput.value;
 
@@ -72,37 +72,47 @@ if (taskLists) { // Check if taskLists exists before running to-do list code
             console.log("Task List:", taskList);
 
             if (taskList) {
-            const newTask = document.createElement('li');
-            newTask.innerHTML = `
-                <input type="checkbox">
-                <span>${taskDescription}</span>
-            `;
-            console.log("New Task:", newTask);
-            taskList.appendChild(newTask);
-            newTaskInput.value = '';
+                const newTask = document.createElement('li');
+                newTask.innerHTML = `
+                    <input type="checkbox">
+                    <span>${taskDescription}</span>
+                    <button class="delete-task">Delete</button>
+                `; // Added delete button here
+                console.log("New Task:", newTask);
+                taskList.appendChild(newTask);
+                newTaskInput.value = '';
 
-            // Store tasks in local storage
-            saveTasksToLocalStorage();
+                // Store tasks in local storage
+                saveTasksToLocalStorage();
 
-        } else {
-            console.error("Task list not found for category:", category);
-        }
-    }
-});
-
-        taskLists.addEventListener('change', (event) => {
-            if (event.target.type === 'checkbox') {
-                const taskSpan = event.target.nextElementSibling;
-                taskSpan.classList.toggle('completed', event.target.checked);
-                saveTasksToLocalStorage(); //save tasks to local storage when a checkbox is changed.
+            } else {
+                console.error("Task list not found for category:", category);
             }
-        });
-    } else {
-        console.error("Element with ID 'task-lists' not found.");
-        // This console.error message is expected on pages where the 'task-lists' element does not exist, such as index.html.
-        // The to-do list functionality is only intended for lists.html, and the conditional check prevents errors on other pages.
-    }
-    
+        }
+    });
+
+    taskLists.addEventListener('click', (event) => { // Added click event listener for delete
+        if (event.target.classList.contains('delete-task')) {
+            const taskItem = event.target.parentElement;
+            taskItem.remove();
+            saveTasksToLocalStorage(); // Update local storage after deletion
+        }
+    });
+
+    taskLists.addEventListener('change', (event) => {
+        if (event.target.type === 'checkbox') {
+            const taskSpan = event.target.nextElementSibling;
+            taskSpan.classList.toggle('completed', event.target.checked);
+            saveTasksToLocalStorage(); //save tasks to local storage when a checkbox is changed.
+        }
+    });
+
+} else {
+    console.error("Element with ID 'task-lists' not found.");
+    // This console.error message is expected on pages where the 'task-lists' element does not exist, such as index.html.
+    // The to-do list functionality is only intended for lists.html, and the conditional check prevents errors on other pages.
+}
+
 });
 
 // Function to save tasks to local storage:
@@ -142,6 +152,7 @@ function loadTasksFromLocalStorage() {
                 newTask.innerHTML = `
                     <input type="checkbox" ${task.checked ? 'checked' : ''}>
                     <span ${task.completed ? 'class="completed"' : ''}>${task.text}</span>
+                    <button class="delete-task">Delete</button>
                 `;
                 taskList.appendChild(newTask);
             });
