@@ -36,14 +36,14 @@
         <div class="lists-container">  
             <div class="column">
                 <div id="new-task-form">
-                    <select id="category-select" name="category" aria-label="Select task category">
+                    <label for="new-task-input"></label>
+                    <input type="text" id="new-task-input" class="task-input" name="task" placeholder=" Add a new task" aria-label="Enter new task description">
+                    <select id="category-select" name="category" class="category-select" aria-label="Select task category">
                         <option value="work">Work</option>
                         <option value="personal">Personal</option>
                         <option value="shopping">Shopping</option>
                     </select>
-                    <label for="new-task-input">New Task</label>
-                    <input type="text" id="new-task-input" name="task" placeholder="Add a new task" aria-label="Enter new task description">
-                    <button id="add-task-button" aria-label="Add task">Add Task</button>
+                    <button id="add-task-button" id="add-task-button" class="add-button" aria-label="Add task">Add Task</button>
                 </div>
                 <div id="task-lists">
                     <div class="task-list" id="work-tasks">
