@@ -186,9 +186,11 @@ main { /*THIS IS IN THE HOME PAGE*/
 
 .inner-column {
     flex: 1; /* Distribute space equally */
-    border: 1px solid #eee;
+    border: none;
     padding: 5px;
     margin: 5px;
+    border-left: 1px solid #ddd; /* Add a right border */
+    padding-right: 10px; /* Optional: Add padding for spacing */
 }
 
 
