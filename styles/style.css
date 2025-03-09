@@ -442,6 +442,13 @@ footer {
 .task-list ul li.task-item {
     background-color: rgba(192, 192, 192, 0.5);
     border-radius: 8px;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically in the center */
+    gap: 5px; /* Add some spacing between elements */
+}
+
+.task-item label {
+    flex-grow: 1; /* Allow the label to take up remaining space */
 }
 
 .delete-task {
@@ -451,8 +458,19 @@ footer {
     border: none;
     cursor: pointer;
     border-radius: 8px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
+.edit-task,
+.save-task {
+    padding: 5px 10px;
+    background-color: rgb(149, 197, 172);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
 
 .task-list li input[type="checkbox"] {
     margin-right: 10px;

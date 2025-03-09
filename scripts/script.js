@@ -79,6 +79,7 @@ if (taskLists) { // Check if taskLists exists before running to-do list code
                     <input type="checkbox" name="${category}-task" id="${taskId}">
                     <span>${taskDescription}</span>
                 </label>
+                <button class="edit-task" aria-label="Edit task">Edit</button>
                 <button class="delete-task" aria-label="Delete task">Delete</button>
                 `;
                 newTask.classList.add("task-item"); // Add CSS class
@@ -99,9 +100,34 @@ if (taskLists) { // Check if taskLists exists before running to-do list code
         if (event.target.classList.contains('delete-task')) {
             const taskItem = event.target.parentElement;
             taskItem.remove();
-            saveTasksToLocalStorage(); // Update local storage after deletion
-        }
-    });
+            saveTasksToLocalStorage();// Update local storage after deletion
+        } else if (event.target.classList.contains('edit-task')) {
+            const taskItem = event.target.parentElement;
+            const taskSpan = taskItem.querySelector('span');
+            const taskText = taskSpan.textContent;
+
+        // Replace span with input field
+        taskSpan.outerHTML = `<input type="text" class="edit-input" value="${taskText}">`;
+        const editInput = taskItem.querySelector('.edit-input');
+        editInput.focus();
+
+        // Replace edit button with save button.
+        event.target.outerHTML = '<button class="save-task" aria-label="Save task">Save</button>';
+    } else if (event.target.classList.contains('save-task')){
+        const taskItem = event.target.parentElement;
+        const editInput = taskItem.querySelector('.edit-input');
+        const newText = editInput.value;
+
+        //replace input with span.
+        editInput.outerHTML = `<span>${newText}</span>`;
+
+        //replace save button with edit button.
+        event.target.outerHTML = '<button class="edit-task" aria-label="Edit task">Edit</button>';
+
+        saveTasksToLocalStorage();
+    }
+});
+
 
     taskLists.addEventListener('change', (event) => {
         if (event.target.type === 'checkbox') {
@@ -162,6 +188,7 @@ function loadTasksFromLocalStorage() {
                         <input type="checkbox" ${task.checked ? 'checked' : ''} name="${category}-task" id="${taskId}">
                         <span ${task.completed ? 'class="completed"' : ''}>${task.text}</span>
                     </label>
+                    <button class="edit-task" aria-label="Edit task">Edit</button>
                     <button class="delete-task" aria-label="Delete task">Delete</button>
                 `;
                 newTask.classList.add("task-item"); // Add CSS class
