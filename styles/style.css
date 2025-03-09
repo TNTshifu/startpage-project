@@ -37,9 +37,10 @@ html, body {
     padding: 0;
 }
 
-body {
+body.home-page {
     min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
     background-color: var(--background-color);
+    background: url('../img/northern-lights-4038299_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Oswald-Regular', sans-serif;
@@ -117,7 +118,6 @@ a:hover {
 }
 
 main { /*THIS IS IN THE HOME PAGE*/
-    background: url('../img/northern-lights-4038299_1920.jpg');
     min-height: 85vh;
     padding-bottom: 50px;
 }
@@ -354,9 +354,19 @@ footer {
 
 /* ... LIST-PAGE STYLES START ... */
 
+
+body.list-page {
+    min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
+    background-color: var(--background-color);
+    background: url('../img/winter-6897046_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Oswald-Regular', sans-serif;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
 .list-page main { /* Styles for the list page */
-    background: url('../img/winter-6897046_1920.jpg'); /* Or a different color */
-    font-family: sans-serif;
     min-height: 85vh;
     padding-bottom: 50px;
   }
@@ -512,17 +522,82 @@ footer {
 
 
 
+/* ... TIMERS-PAGE STYLES START! ... */
+
+body.timers-page {
+    min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
+    background: url('../img/abstract1.png'); /* Different image */
+    background-color: var(--background-color);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Oswald-Regular', sans-serif;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
+
+/* ... TIMERS-PAGE STYLES END! ... */
+
+
+
 
 
 /* ... CALCULATORS-PAGE STYLES START! ... */
 
-  .calculators-page main { /* Styles for the contact page */
-    background: url('../img/abstract1.png'); /* Different image */
+body.calculators-page {
+    min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
+    background: url('../img/stars-2643089_1920.jpg'); /* Different image */
     background-color: var(--background-color);
-    /* ... other styles ... */
-  }
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Oswald-Regular', sans-serif;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
 
 /* ... CALCULATORS-PAGE STYLES END! ... */
+
+
+/* ... SHORTCUTS-PAGE STYLES START! ... */
+
+body.shortcuts-page {
+    min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
+    background: url('../img/bamboo-shadow-2421657_1920.jpg'); /* Different image */
+    background-color: var(--background-color);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Oswald-Regular', sans-serif;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
+
+/* ... SHORTCUTS-PAGE STYLES END! ... */
+
+
+
+/* ... FUNSTUFF-PAGE STYLES START! ... */
+
+body.funstuff-page {
+    min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
+    background: url('../img/abstract-2512412_1920.jpg'); /* Different image */
+    background-color: var(--background-color);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Oswald-Regular', sans-serif;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
+
+/* ... SHORTCUTS-PAGE STYLES END! ... */
+
+
+
+
+
+
 
 
 
