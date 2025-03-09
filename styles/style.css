@@ -369,14 +369,14 @@ body.list-page {
 .list-page main { /* Styles for the list page */
     min-height: 85vh;
     padding-bottom: 50px;
+    padding: 20px;
   }
 
   .lists-container {
-    display: block; /* Vertical stacking */
-    margin-bottom: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    gap: 20px;
+    max-width: 1200px; /* Adjust this value as needed */
+    margin: 20px auto; /* Center the container horizontally */
 }
 
 
@@ -399,6 +399,70 @@ body.list-page {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
     list-style-type: none;
+}
+
+.shopping-list-wrapper{
+    flex: 3;
+    width: auto;
+    border: 1px solid rgba(234, 211, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack children vertically */
+    padding: 0px; /* Make sure this matches the to-do list wrapper padding */
+}
+
+.shopping-list-wrapper .column {
+    background-color: rgba(42, 23, 59, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(234, 211, 255, 0.2);
+    border-radius: 10px;
+    flex: 1; /* Make the column take up all available space */
+    padding: 0px; /* Check the padding on this element */
+    flex: 1;
+}
+
+
+.todo-list-wrapper {
+    flex: 7;
+    width: auto;
+    border: 1px solid rgba(234, 211, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack children vertically */
+    padding: 0px; /* Make sure this matches the to-do list wrapper padding */
+}
+
+.todo-list-wrapper .column{
+    background-color: rgba(42, 23, 59, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(234, 211, 255, 0.2);
+    border-radius: 10px;
+    padding: 0px; /* Check the padding on this element */
+}
+
+#new-shopping-item-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.shopping-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.shopping-list ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shopping-list li input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 #new-task-form {
