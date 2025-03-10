@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('nav a');
+    const currentPage = window.location.pathname; // Gets the current page's path
+
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname; // Gets the link's path
+        if (linkPath === currentPage || (currentPage === '/' && linkPath === '/index.html') || (currentPage === '/index.html' && linkPath === '/index.html')) {
+            link.classList.add('active-page'); // Add the active-page class
+        }
+    });
+
 
 // Time and date js, start
 function updateDateTime() {
