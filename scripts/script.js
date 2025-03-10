@@ -198,3 +198,112 @@ function loadTasksFromLocalStorage() {
     }
 }
 // Todolist js, end
+
+
+
+
+
+ // Shopping List JavaScript
+
+ const shoppingInput = document.getElementById('new-shopping-item-input');
+ const addButton = document.getElementById('add-shopping-item-button');
+ const shoppingList = document.getElementById('shopping-items').querySelector('ul');
+
+    // Function to save shopping list to local storage
+    function saveShoppingList() {
+        const items = [];
+        shoppingList.querySelectorAll('li').forEach(item => {
+            const label = item.querySelector('label');
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            items.push({
+                text: label.textContent,
+                completed: checkbox.checked
+            });
+        });
+        localStorage.setItem('shoppingList', JSON.stringify(items));
+    }
+
+    // Function to load shopping list from local storage
+    function loadShoppingList() {
+        const savedItems = JSON.parse(localStorage.getItem('shoppingList')) || [];
+        savedItems.forEach(item => {
+            createShoppingItem(item.text, item.completed);
+        });
+    }
+
+    // Function to create a new shopping list item
+    function createShoppingItem(itemText, completed = false) {
+        const listItem = document.createElement('li');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = completed;
+        const label = document.createElement('label');
+        label.textContent = itemText;
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-task');
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.classList.add('edit-task');
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+        saveButton.classList.add('save-task');
+        saveButton.style.display = 'none'; // Initially hidden
+
+
+        listItem.appendChild(checkbox);
+        listItem.appendChild(label);
+        listItem.appendChild(editButton);
+        listItem.appendChild(saveButton);
+        listItem.appendChild(deleteButton);
+        shoppingList.appendChild(listItem);
+
+        // Event listener for checkbox
+        checkbox.addEventListener('change', () => {
+            label.classList.toggle('completed', checkbox.checked);
+            saveShoppingList();
+        });
+
+        // Event listener for delete button
+        deleteButton.addEventListener('click', () => {
+            shoppingList.removeChild(listItem);
+            saveShoppingList();
+        });
+
+        // Event listener for edit button
+        editButton.addEventListener('click', () => {
+            label.contentEditable = true;
+            label.focus();
+            editButton.style.display = 'none';
+            saveButton.style.display = 'inline-block';
+        });
+
+        // Event listener for save button
+        saveButton.addEventListener('click', () => {
+            label.contentEditable = false;
+            editButton.style.display = 'inline-block';
+            saveButton.style.display = 'none';
+            saveShoppingList();
+        });
+    }
+
+
+    // Event listener for add button
+    addButton.addEventListener('click', () => {
+        const itemText = shoppingInput.value.trim();
+        if (itemText !== '') {
+            createShoppingItem(itemText);
+            shoppingInput.value = '';
+            saveShoppingList();
+        }
+    });
+
+    // Event listener for enter key
+    shoppingInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            addButton.click();
+        }
+    });
+
+    // Load shopping list on page load
+    loadShoppingList();
