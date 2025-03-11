@@ -317,10 +317,11 @@ function loadTasksFromLocalStorage() {
 
 //POMODORO TIMER
 if (window.location.pathname.includes('timers.html')) {
-const pomodoroDisplay = document.getElementById('pomodoro-display');
-const pomodoroStartButton = document.getElementById('pomodoro-start');
-const pomodoroPauseButton = document.getElementById('pomodoro-pause');
-const pomodoroResetButton = document.getElementById('pomodoro-reset');
+    const pomodoroContainer = document.querySelector('.pomodoro-container'); // Get the container by class
+    const pomodoroDisplay = document.getElementById('pomodoro-display');
+    const pomodoroStartButton = document.getElementById('pomodoro-start');
+    const pomodoroPauseButton = document.getElementById('pomodoro-pause');
+    const pomodoroResetButton = document.getElementById('pomodoro-reset');
 
 let timer;
 let timeLeft = 25 * 60; // 25 minutes in seconds
@@ -333,6 +334,10 @@ function updateDisplay() {
 }
 
 function startTimer() {
+    if (pomodoroContainer) {
+        pomodoroContainer.classList.add('running');
+        pomodoroContainer.classList.remove('paused');
+    } // Remove this extra }
     if (!isRunning) {
         isRunning = true;
         timer = setInterval(() => {
@@ -351,6 +356,10 @@ function startTimer() {
 }
 
 function pauseTimer() {
+    if (pomodoroContainer) { // Check if pomodoroContainer exists
+pomodoroContainer.classList.remove('running');
+pomodoroContainer.classList.add('paused');
+    }
     if (isRunning) {
         clearInterval(timer);
         isRunning = false;
@@ -358,6 +367,10 @@ function pauseTimer() {
 }
 
 function resetTimer() {
+    if (pomodoroContainer) { // Check if pomodoroContainer exists
+pomodoroContainer.classList.remove('running');
+pomodoroContainer.classList.remove('paused');
+    }
     clearInterval(timer);
     isRunning = false;
     timeLeft = 25 * 60;

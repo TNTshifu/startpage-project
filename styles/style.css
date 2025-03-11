@@ -684,6 +684,59 @@ body.calculators-page {
     font-size: var(--font-size-base);
 }
 
+.pomodoro-container {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur the background */
+    border: 1px solid rgba(234, 211, 255, 0.2); /* Subtle border */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    width: 300px; /* Adjust as needed */
+    margin: 20px auto; /* Center the container horizontally */
+}
+
+#pomodoro-display {
+    font-size: 3em;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(192, 192, 192, 0.5);
+    border: 2px solid #3498db; /* Blue border for focus */
+    border-radius: 6px;
+    display: inline-block; /* Avoid full width */
+    min-width: 150px;
+  }
+
+  #pomodoro-controls button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #3498db; /* Blue background */
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  #pomodoro-controls button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  #pomodoro-controls button:active {
+    background-color: #1f618d; /* Even darker blue on click */
+  }
+
+  /* Change display color when timer is running */
+.pomodoro-container.running #pomodoro-display {
+    border-color: #2ecc71; /* Green when running */
+}
+
+/*Change display color when timer is paused */
+.pomodoro-container.paused #pomodoro-display {
+    border-color: #f39c12; /* Orange when paused */
+}
 
 /* ... CALCULATORS-PAGE STYLES END! ... */
 
