@@ -8,6 +8,15 @@
     --accent-color: rgb(149, 197, 172);
 }
 
+.dark-mode {
+    --primary-color: #333333; /* dark mode header background */
+    --text-color: #e0e0e0; /* Dark mode text */
+    --bg-color: #121212; /* Dark mode background */
+    --accent-color: #64b5f6; /* Dark mode accent */
+}
+
+
+
 .content-wrapper {
     padding: 10px; /*To create space*/
 }
@@ -37,7 +46,7 @@ html, body {
     padding: 0;
 }
 
-body.home-page {
+body {
     min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
     background-color: var(--background-color);
     background: url('../img/northern-lights-4038299_1920.jpg');
@@ -61,8 +70,8 @@ header {
 
 .toggle-btn {
     position: relative;
-    height: 50px;
-    width: 100px;
+    height: 30px;
+    width: 60px;
     background-color: #42455a;
     border-radius: 100px;
     cursor: pointer;
@@ -74,9 +83,9 @@ header {
     top: 50%;
     left: -1px;
     transform: translateY(-50%);
-    height: 60px;
-    width: 60px;
-    font-size: 30px;
+    height: 36px;
+    width: 36px;
+    font-size: 20px;
     color: #999;
     display: flex;
     align-items: center;
@@ -92,7 +101,7 @@ header {
   }
   
   .toggle-btn.active .icon {
-    left: calc(100% - 59px);
+    left: calc(100% - 35px);
     color: #e0ffff;
     border: 1px solid #e0ffff;
   }

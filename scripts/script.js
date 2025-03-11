@@ -11,17 +11,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // togglebutton js start
-const toggleBtn = document.querySelector(".toggle-btn"),
-  lockIcon = document.querySelector(".icon i");
+const toggleBtn = document.querySelector(".toggle-btn");
+const body = document.body;
+const lockIcon = document.querySelector(".icon i");
 
-toggleBtn.addEventListener("click", () => {
-  toggleBtn.classList.toggle("active");
+    // Function to set the icon based on dark mode class
+    function setIcon() {
+        if (body.classList.contains("dark-mode")) {
+            lockIcon.classList.replace("ri-moon-fill", "ri-sun-line");
+        } else {
+            lockIcon.classList.replace("ri-sun-line", "ri-moon-fill");
+        }
+    }
 
-  if(toggleBtn.classList.contains("active")) {
-  lockIcon.classList.replace("ri-moon-fill", "ri-sun-line");
-  } else
- lockIcon.classList.replace("ri-sun-line", "ri-moon-fill");
-})
+    // Set initial icon state immediately
+    setIcon();
+
+    // Check local storage on page load.
+    if (localStorage.getItem('darkMode') === 'true') {
+        body.classList.add('dark-mode');
+        toggleBtn.classList.add('active');
+        setIcon(); // Update icon based on local storage
+    }
+
+    toggleBtn.addEventListener("click", () => {
+        toggleBtn.classList.toggle("active");
+        body.classList.toggle("dark-mode");
+        setIcon(); // Update icon after toggle
+
+        // Save preference to local storage.
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+    });
+
 
 
 
