@@ -10,6 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
+// togglebutton js start
+const toggleBtn = document.querySelector(".toggle-btn"),
+  lockIcon = document.querySelector(".icon i");
+
+toggleBtn.addEventListener("click", () => {
+  toggleBtn.classList.toggle("active");
+
+  if(toggleBtn.classList.contains("active")) {
+  lockIcon.classList.replace("ri-moon-fill", "ri-sun-line");
+  } else
+ lockIcon.classList.replace("ri-sun-line", "ri-moon-fill");
+})
+
+
+
+
 // Time and date js, start
 function updateDateTime() {
     const now = new Date();
