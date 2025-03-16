@@ -47,6 +47,53 @@ const lockIcon = document.querySelector(".icon i");
 
 
 
+//SnowAnimation js start
+
+const snowContainer = document.querySelector(".snow-container");
+
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+
+    // Random horizontal position
+    snowflake.style.left = Math.random() * window.innerWidth + "px";
+
+    // Slower fall speed (10s - 15s)
+    const fallDuration = Math.random() * 5 + 10; // Between 10s and 15s
+
+    // Random sway speed (matching fall speed for smooth motion)
+    const swayDuration = fallDuration * 0.8; 
+
+    // Random sway direction
+    const swayDirection = Math.random() < 0.5 ? -1 : 1;
+    snowflake.style.setProperty("--sway-direction", swayDirection);
+    snowflake.style.setProperty("--sway-speed", `${swayDuration}s`);
+
+    // Apply animation dynamically
+    snowflake.style.animation = `fall ${fallDuration}s linear forwards, sway var(--sway-speed) ease-in-out infinite alternate`;
+
+    // Random size
+    const size = Math.random() * 5 + 5; 
+    snowflake.style.width = `${size}px`;
+    snowflake.style.height = `${size}px`;
+
+    // Varying opacity
+    snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+
+    snowContainer.appendChild(snowflake);
+
+    // Remove after full fall duration
+    setTimeout(() => {
+        snowflake.remove();
+    }, fallDuration * 1000);
+}
+
+setInterval(createSnowflake, 100); // Create a new snowflake every 100ms
+
+
+
+
+
 // Time and date js, start
 function updateDateTime() {
     const now = new Date();
