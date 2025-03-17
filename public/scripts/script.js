@@ -149,16 +149,22 @@ function updateDateTime() {
     const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = now.toLocaleDateString(undefined, dateOptions);
 
-    const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };// No seconds
     const formattedTime = now.toLocaleTimeString(undefined, timeOptions);
 
-    const datetimeDiv = document.getElementById("datetime");
-    datetimeDiv.textContent = `${formattedDate} - ${formattedTime}`;
+    // Get the elements
+    const dateElement = document.getElementById("date");
+    const timeElement = document.getElementById("time");
+
+    // Added icons using Remix Icon
+    dateElement.innerHTML = `<i class="ri-calendar-line"></i> ${formattedDate}`;
+    timeElement.innerHTML = `<i class="ri-time-line"></i> ${formattedTime}`;
 }
+
 // Initial display
 updateDateTime();
-// Update every second
-setInterval(updateDateTime, 1000);
+// Update every minute instead of every second (since seconds are removed)
+setInterval(updateDateTime, 60000);
 // Time and date js, end
 
 
