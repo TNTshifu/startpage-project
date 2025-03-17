@@ -127,7 +127,7 @@ function createFallingObject() {
 
     // Append the falling object to the container
     fallContainer.appendChild(obj);
-    
+
     // Remove after full fall duration
     setTimeout(() => {
         obj.remove();
@@ -160,6 +160,41 @@ updateDateTime();
 // Update every second
 setInterval(updateDateTime, 1000);
 // Time and date js, end
+
+
+
+
+
+
+//Weather API js start
+
+const apiKey = 'c23dd928f3b10f500946d07fe433b567';  // your actual API key
+const city = 'Tampere';          // your city
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+fetch(url)
+.then(response => response.json())
+.then(data => {
+    const temp = Math.round(data.main.temp); // Round to nearest whole number
+    const iconCode = data.weather[0].icon;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+    // Display only the temperature
+    document.getElementById('weather-text').innerText = `${temp}°C`; 
+    // Display the weather icon
+    const iconElement = document.getElementById('weather-icon');
+    iconElement.src = iconUrl;
+    iconElement.style.display = 'inline'; // Make the icon visible
+})
+.catch(error => console.error('Error fetching weather:', error));
+
+
+//Weather API js end
+
+
+
+
+
 
 // Searchbar js, start
 const searchForm = document.getElementById('search-form');

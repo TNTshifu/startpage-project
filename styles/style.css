@@ -327,6 +327,24 @@ main { /*THIS IS IN THE HOME PAGE*/
 
 
 
+/*Weather API css*/
+
+#weather-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+}
+#weather-icon {
+    width: 80px;
+    height: 80px;
+}
+
+
+
+
+
 /* Searchbar css starts*/
 
 #search-container {
