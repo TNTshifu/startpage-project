@@ -101,6 +101,46 @@ header {
     }
 }
 
+.falling-object {
+    position: absolute;
+    top: -10px;
+    user-select: none;
+    pointer-events: none;
+    animation: fallAndSway linear infinite, rotateWind 2s ease-in-out infinite; 
+    filter: drop-shadow(0 0 10px white);
+}
+
+@keyframes fallAndSway {
+    0% {
+        top: -10%;
+        transform: translateX(0); /* No horizontal movement at the start */
+    }
+    100% {
+        top: 100%;
+        transform: translateX(calc(50px * (var(--sway-direction, 1)))); /* Horizontal sway movement */
+    }
+}
+
+@keyframes rotateWind {
+    0% {
+        transform: rotate(-20deg); /* Start with -20 degrees */
+    }
+    25% {
+        transform: rotate(20deg); /* Rotate to +20 degrees */
+    }
+    50% {
+        transform: rotate(-20deg); /* Rotate back to -20 degrees */
+    }
+    75% {
+        transform: rotate(20deg); /* Rotate back to +20 degrees */
+    }
+    100% {
+        transform: rotate(-20deg); /* Rotate back to -20 degrees */
+    }
+}
+
+
+
 .toggle-btn {
     position: relative;
     height: 30px;

@@ -94,6 +94,54 @@ setInterval(createSnowflake, 100); // Create a new snowflake every 100ms
 
 
 
+// Falling Objects JS Start
+
+const fallContainer = document.querySelector(".falling-container"); // Target the falling-container
+
+
+function createFallingObject() {
+    const obj = document.createElement("img");
+    obj.classList.add("falling-object");
+
+    // Random horizontal position
+    obj.style.left = Math.random() * window.innerWidth + "px";
+
+    // Choose a random image (array of image paths)
+    const images = ["../img/dandelion-1-50pxheight.png", "../img/dandelion-2-50pxheight.png"]; 
+    obj.src = images[Math.floor(Math.random() * images.length)];
+
+    // Random fall speed (15s - 25s)
+    const fallDuration = Math.random() * 10 + 15; 
+    const swayDuration = fallDuration * 0.8; 
+
+    // Apply the animation (falling & swaying + rotation)
+    obj.style.animation = `fallAndSway ${fallDuration}s linear forwards, rotateWind ${fallDuration}s ease-in-out infinite`;
+
+    // Random size for the image
+    const size = Math.random() * 30 + 20; // Between 20px and 50px
+    obj.style.width = `${size}px`;
+    obj.style.height = `${size}px`;
+
+    // Varying opacity
+    obj.style.opacity = Math.random() * 0.7 + 0.3;
+
+    // Append the falling object to the container
+    fallContainer.appendChild(obj);
+    
+    // Remove after full fall duration
+    setTimeout(() => {
+        obj.remove();
+    }, fallDuration * 1000);
+}
+
+setInterval(createFallingObject, 200);
+
+
+
+
+
+
+
 // Time and date js, start
 function updateDateTime() {
     const now = new Date();
