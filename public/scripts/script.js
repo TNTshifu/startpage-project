@@ -168,35 +168,36 @@ setInterval(updateDateTime, 1000);
 
 //Weather API js start
 
-const apiKey = 'c23dd928f3b10f500946d07fe433b567';  // your actual API key
-const city = 'Tampere';          // your city
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+const city = 'Tampere'; // Your city
 
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
-.then(response => response.json())
-.then(data => {
+// First, fetch the API key from the backend
+fetch('/api-key')
+  .then(response => response.json())
+  .then(data => {
+    const apiKey = data.apiKey;  // Now you have the API key from the backend
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(weatherData => {
         // Process the weather data here
-    })
-    .catch(error => console.error('Error fetching weather:', error));
-    console.log(data);  // Check the response data
-    const temp = Math.round(data.main.temp); // Round to nearest whole number
-    const iconCode = data.weather[0].icon;
-    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        const temp = Math.round(weatherData.main.temp); // Round to nearest whole number
+        const iconCode = weatherData.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-     const windSpeed = Math.round(data.wind.speed); // Wind speed in meters per second, rounded
+        const windSpeed = Math.round(weatherData.wind.speed); // Wind speed in meters per second, rounded
 
-     //  // Display only the temperature and wind speed (in meters per second)
-    document.getElementById('weather-text').innerText = `${temp}°C, Wind: ${windSpeed} m/s`; 
+        // Display the temperature and wind speed
+        document.getElementById('weather-text').innerText = `${temp}°C, Wind: ${windSpeed} m/s`;
 
-    // Display the weather icon
-    const iconElement = document.getElementById('weather-icon');
-    iconElement.src = iconUrl;
-    iconElement.style.display = 'inline'; // Make the icon visible
-})
-.catch(error => console.error('Error fetching weather:', error));
-
-
-//Weather API js end
+        // Display the weather icon
+        const iconElement = document.getElementById('weather-icon');
+        iconElement.src = iconUrl;
+        iconElement.style.display = 'inline'; // Make the icon visible
+      })
+      .catch(error => console.error('Error fetching weather data:', error));
+  })
+  .catch(error => console.error('Error fetching API key:', error));
 
 
 
