@@ -25,6 +25,7 @@
     margin-top: 10px;
     padding: 2px;
     min-height: 50px; /* Adjust as needed */
+    text-align: left;
 }
 
 #datetime {
@@ -264,7 +265,7 @@ main { /*THIS IS IN THE HOME PAGE*/
     transform: translate(-50%, 0);
 }
 
-.index-container {
+.websitelinks-container {
     display: flex; /* Horizontal stacking */
     justify-content: space-around;
     gap: 20px;
@@ -272,11 +273,55 @@ main { /*THIS IS IN THE HOME PAGE*/
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+    
 }
 
-.index-container .column {
+
+.index-container {
+    display: flex; /* Horizontal stacking */
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    align-items: flex-start; /* Align items at the top */
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+    padding: 5px;
+    background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur the background */
+    border: 1px solid rgba(234, 211, 255, 0.2); /* Subtle border */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    
+}
+
+/* Left column containing welcome text and datetime */
+.left-column {
+    display: flex;
+    flex-direction: column; /* Stack welcome text and datetime vertically */
+    align-items: flex-start;
+    width: 35%; /* Left column takes up about half the container */
+    padding-left: 40px;
+}
+
+/* Right column containing weather info */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 35%; /* Right column takes up the other half of the container */
+    padding-right: 40px;
+
+}
+
+
+
+.websitelinks-container .column {
     flex: 1;
 }
+
+
   .column {  /* columns with glassmorphism effect*/
     padding: 5px;
     background-color: rgba(42, 23, 59, 0.3);/* Semi-transparent background */
@@ -335,7 +380,9 @@ main { /*THIS IS IN THE HOME PAGE*/
     justify-content: center;
     gap: 10px;
     font-size: 24px;
+    margin-top: 10px;
 }
+
 #weather-icon {
     width: 80px;
     height: 80px;
@@ -348,14 +395,17 @@ main { /*THIS IS IN THE HOME PAGE*/
 /* Searchbar css starts*/
 
 #search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     text-align: center;
     margin: 15px auto;
-    width: 600px; /* Adjust width as needed */
 }
 
 #search-form {
     display: flex; /* Enable Flexbox on the form */
     align-items: center; /* Vertically align items */
+    width: 600px; /* Adjust width as needed */
   }
 
 #search-input {
