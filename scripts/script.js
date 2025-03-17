@@ -179,8 +179,11 @@ fetch(url)
     const iconCode = data.weather[0].icon;
     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-    // Display only the temperature
-    document.getElementById('weather-text').innerText = `${temp}°C`; 
+     const windSpeed = Math.round(data.wind.speed); // Wind speed in meters per second, rounded
+
+     //  // Display only the temperature and wind speed (in meters per second)
+    document.getElementById('weather-text').innerText = `${temp}°C, Wind: ${windSpeed} m/s`; 
+
     // Display the weather icon
     const iconElement = document.getElementById('weather-icon');
     iconElement.src = iconUrl;
