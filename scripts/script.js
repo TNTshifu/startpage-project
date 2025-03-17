@@ -172,9 +172,10 @@ const apiKey = 'c23dd928f3b10f500946d07fe433b567';  // your actual API key
 const city = 'Tampere';          // your city
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-fetch(url)
+fetch('http://localhost:3000/weather?city=London')
 .then(response => response.json())
 .then(data => {
+    console.log(data);  // Check the response data
     const temp = Math.round(data.main.temp); // Round to nearest whole number
     const iconCode = data.weather[0].icon;
     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
