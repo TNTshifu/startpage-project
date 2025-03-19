@@ -21,6 +21,17 @@
     padding: 10px; /*To create space*/
 }
 
+#welcomeandate-container {
+    max-width: 300px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+}
+
 #welcome-text {
     margin-top: 10px;
     padding: 2px;
@@ -29,16 +40,34 @@
 }
 
 #datetime {
-    font-family: 'Nunito_Sans-Medium', sans-serif;
-    font-size: 1em;
-    text-align: center;
-    margin-top: 2px;
-      /* Add any other styles you want here */
-    color: #ffffff; /* Example text color */
-    background-color: none; /* Example background color */
-     padding: 0px; /* Example padding */
-     padding-top: 0px;
-     border: none; /* Example border */
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+#datetime i {
+    margin-right: 8px; 
+    color: #6c757d;
+    font-size: 1.2rem; /* Make the icons a bit bigger */
+}
+
+#time i {
+    margin-right: 8px; 
+    color: #6c757d;
+    font-size: 1.2rem; /* Make the icons a bit bigger */
+}
+
+#datetime #date {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+#datetime #time {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
 }
 
 
