@@ -49,92 +49,105 @@ const lockIcon = document.querySelector(".icon i");
 
 //SnowAnimation js start
 
+// Check if the snow-container exists before trying to use it
+if (window.location.pathname === '/index.html') {
 const snowContainer = document.querySelector(".snow-container");
 
-function createSnowflake() {
-    const snowflake = document.createElement("div");
-    snowflake.classList.add("snowflake");
+if (snowContainer) {
+    function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
 
-    // Random horizontal position
-    snowflake.style.left = Math.random() * window.innerWidth + "px";
+        // Random horizontal position
+        snowflake.style.left = Math.random() * window.innerWidth + "px";
 
-    // Slower fall speed (10s - 15s)
-    const fallDuration = Math.random() * 5 + 10; // Between 10s and 15s
+        // Slower fall speed (10s - 15s)
+        const fallDuration = Math.random() * 5 + 10; // Between 10s and 15s
 
-    // Random sway speed (matching fall speed for smooth motion)
-    const swayDuration = fallDuration * 0.8; 
+        // Random sway speed (matching fall speed for smooth motion)
+        const swayDuration = fallDuration * 0.8;
 
-    // Random sway direction
-    const swayDirection = Math.random() < 0.5 ? -1 : 1;
-    snowflake.style.setProperty("--sway-direction", swayDirection);
-    snowflake.style.setProperty("--sway-speed", `${swayDuration}s`);
+        // Random sway direction
+        const swayDirection = Math.random() < 0.5 ? -1 : 1;
+        snowflake.style.setProperty("--sway-direction", swayDirection);
+        snowflake.style.setProperty("--sway-speed", `${swayDuration}s`);
 
-    // Apply animation dynamically
-    snowflake.style.animation = `fall ${fallDuration}s linear forwards, sway var(--sway-speed) ease-in-out infinite alternate`;
+        // Apply animation dynamically
+        snowflake.style.animation = `fall ${fallDuration}s linear forwards, sway var(--sway-speed) ease-in-out infinite alternate`;
 
-    // Random size
-    const size = Math.random() * 5 + 5; 
-    snowflake.style.width = `${size}px`;
-    snowflake.style.height = `${size}px`;
+        // Random size
+        const size = Math.random() * 5 + 5;
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
 
-    // Varying opacity
-    snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+        // Varying opacity
+        snowflake.style.opacity = Math.random() * 0.7 + 0.3;
 
-    snowContainer.appendChild(snowflake);
+        snowContainer.appendChild(snowflake);
 
-    // Remove after full fall duration
-    setTimeout(() => {
-        snowflake.remove();
-    }, fallDuration * 1000);
+        // Remove after full fall duration
+        setTimeout(() => {
+            snowflake.remove();
+        }, fallDuration * 1000);
+    }
+
+    // Create a new snowflake every 100ms
+    setInterval(createSnowflake, 100); 
+} else {
+    console.log("Snow container not found on this page.");
 }
-
-setInterval(createSnowflake, 100); // Create a new snowflake every 100ms
-
-
-
+}
 
 
 // Falling Objects JS Start
 
-const fallContainer = document.querySelector(".falling-container"); // Target the falling-container
 
+// Check the current page URL and only run the falling objects script on the correct page
+if (window.location.pathname === "/pages/lists.html") {
+    const fallContainer = document.querySelector(".falling-container");
 
-function createFallingObject() {
-    const obj = document.createElement("img");
-    obj.classList.add("falling-object");
+    if (fallContainer) {
+        function createFallingObject() {
+            const obj = document.createElement("img");
+            obj.classList.add("falling-object");
 
-    // Random horizontal position
-    obj.style.left = Math.random() * window.innerWidth + "px";
+            // Random horizontal position
+            obj.style.left = Math.random() * window.innerWidth + "px";
 
-    // Choose a random image (array of image paths)
-    const images = ["../img/dandelion-1-50pxheight.png", "../img/dandelion-2-50pxheight.png"]; 
-    obj.src = images[Math.floor(Math.random() * images.length)];
+            // Choose a random image (array of image paths)
+            const images = ["../img/dandelion-1-50pxheight.png", "../img/dandelion-2-50pxheight.png"];
+            obj.src = images[Math.floor(Math.random() * images.length)];
 
-    // Random fall speed (15s - 25s)
-    const fallDuration = Math.random() * 10 + 15; 
-    const swayDuration = fallDuration * 0.8; 
+            // Random fall speed (15s - 25s)
+            const fallDuration = Math.random() * 10 + 15;
+            const swayDuration = fallDuration * 0.8;
 
-    // Apply the animation (falling & swaying + rotation)
-    obj.style.animation = `fallAndSway ${fallDuration}s linear forwards, rotateWind ${fallDuration}s ease-in-out infinite`;
+            // Apply the animation (falling & swaying + rotation)
+            obj.style.animation = `fallAndSway ${fallDuration}s linear forwards, rotateWind ${fallDuration}s ease-in-out infinite`;
 
-    // Random size for the image
-    const size = Math.random() * 30 + 20; // Between 20px and 50px
-    obj.style.width = `${size}px`;
-    obj.style.height = `${size}px`;
+            // Random size for the image
+            const size = Math.random() * 30 + 20; // Between 20px and 50px
+            obj.style.width = `${size}px`;
+            obj.style.height = `${size}px`;
 
-    // Varying opacity
-    obj.style.opacity = Math.random() * 0.7 + 0.3;
+            // Varying opacity
+            obj.style.opacity = Math.random() * 0.7 + 0.3;
 
-    // Append the falling object to the container
-    fallContainer.appendChild(obj);
+            // Append the falling object to the container
+            fallContainer.appendChild(obj);
 
-    // Remove after full fall duration
-    setTimeout(() => {
-        obj.remove();
-    }, fallDuration * 1000);
+            // Remove after full fall duration
+            setTimeout(() => {
+                obj.remove();
+            }, fallDuration * 1000);
+        }
+
+        // Run the createFallingObject function every 200ms
+        setInterval(createFallingObject, 200);
+    } else {
+        console.error("Falling container not found!");
+    }
 }
-
-setInterval(createFallingObject, 200);
 
 
 
@@ -149,22 +162,16 @@ function updateDateTime() {
     const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = now.toLocaleDateString(undefined, dateOptions);
 
-    const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };// No seconds
+    const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
     const formattedTime = now.toLocaleTimeString(undefined, timeOptions);
 
-    // Get the elements
-    const dateElement = document.getElementById("date");
-    const timeElement = document.getElementById("time");
-
-    // Added icons using Remix Icon
-    dateElement.innerHTML = `<i class="ri-calendar-line"></i> ${formattedDate}`;
-    timeElement.innerHTML = `<i class="ri-time-line"></i> ${formattedTime}`;
+    const datetimeDiv = document.getElementById("datetime");
+    datetimeDiv.textContent = `${formattedDate} - ${formattedTime}`;
 }
-
 // Initial display
 updateDateTime();
-// Update every minute instead of every second (since seconds are removed)
-setInterval(updateDateTime, 60000);
+// Update every second
+setInterval(updateDateTime, 1000);
 // Time and date js, end
 
 
@@ -174,38 +181,42 @@ setInterval(updateDateTime, 60000);
 
 //Weather API js start
 
-// First, fetch the API key from the backend
+// Fetch the API key from the backend
 fetch('/api-key')
   .then(response => response.json())
   .then(data => {
-    const apiKey = data.apiKey;  // Now you have the API key from the backend
+    const apiKey = data.apiKey;
     const city = "Tampere"; // Your city
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     fetch(url)
       .then(response => response.json())
       .then(weatherData => {
-        // Process the weather data here
-        const temp = Math.round(weatherData.main.temp); // Round to nearest whole number
-        const iconCode = weatherData.weather[0].icon;
-        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-        const windSpeed = Math.round(weatherData.wind.speed); // Wind speed in meters per second, rounded
-        const description = weatherData.weather[0].description; // Get weather description
+        // Check if elements exist before updating them
+        const tempElement = document.getElementById("temperature");
+        const descElement = document.getElementById("description");
+        const windElement = document.getElementById("wind");
+        const iconElement = document.getElementById("weather-icon");
 
-        // Update weather details
-        document.getElementById("temperature").innerText = `${temp}°C`;
-        document.getElementById("description").innerText = description.charAt(0).toUpperCase() + description.slice(1);
-        document.getElementById("wind").innerText = `Wind: ${windSpeed} m/s`;
+        if (tempElement && descElement && windElement && iconElement) {
+          const temp = Math.round(weatherData.main.temp);
+          const iconCode = weatherData.weather[0].icon;
+          const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+          const windSpeed = Math.round(weatherData.wind.speed);
+          const description = weatherData.weather[0].description;
 
-        // Display the weather icon
-        const iconElement = document.getElementById('weather-icon');
-        iconElement.src = iconUrl;
-        iconElement.style.display = 'inline'; // Make the icon visible
+          tempElement.innerText = `${temp}°C`;
+          descElement.innerText = description.charAt(0).toUpperCase() + description.slice(1);
+          windElement.innerText = `Wind: ${windSpeed} m/s`;
+
+          // Display the weather icon
+          iconElement.src = iconUrl;
+          iconElement.style.display = 'inline';
+        }
       })
       .catch(error => console.error('Error fetching weather data:', error));
   })
   .catch(error => console.error('Error fetching API key:', error));
-
 
 
 
