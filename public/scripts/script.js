@@ -402,13 +402,17 @@ function loadTasksFromLocalStorage() {
 }
 // Todolist js, end
 
- // Shopping List JavaScript
- const shoppingInput = document.getElementById('new-shopping-item-input');
- const addButton = document.getElementById('add-shopping-item-button');
- const shoppingListElement = document.getElementById('shopping-items'); //get the element
 
- if(shoppingListElement){ //check if the element exists.
-    const shoppingList = shoppingListElement.querySelector('ul'); //only run query selector if the parent element exists.
+
+
+
+// Shopping List JavaScript
+const shoppingInput = document.getElementById('new-shopping-item-input');
+const addButton = document.getElementById('add-shopping-item-button');
+const shoppingListElement = document.getElementById('shopping-items'); // Get the element
+
+if (shoppingListElement) { // Check if the element exists
+    const shoppingList = shoppingListElement.querySelector('ul'); // Only run querySelector if the parent element exists
 
     // Function to save shopping list to local storage
     function saveShoppingList() {
@@ -432,40 +436,42 @@ function loadTasksFromLocalStorage() {
         });
     }
 
- // Function to create a new shopping list item
- function createShoppingItem(itemText) {
-    const listItem = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    const label = document.createElement('label');
-    label.textContent = itemText;
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.classList.add('delete-task');
-    const editButton = document.createElement('button');
-    editButton.textContent = 'Edit';
-    editButton.classList.add('edit-task');
-    const saveButton = document.createElement('button');
-    saveButton.textContent = 'Save';
-    saveButton.classList.add('save-task');
-    saveButton.style.display = 'none'; // Initially hidden
+    // Function to create a new shopping list item
+    function createShoppingItem(itemText, completed = false) {
+        const listItem = document.createElement('li');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = completed; // Set the checkbox state based on the "completed" value
+        const label = document.createElement('label');
+        label.textContent = itemText;
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-task');
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.classList.add('edit-task');
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+        saveButton.classList.add('save-task');
+        saveButton.style.display = 'none'; // Initially hidden
 
-    listItem.appendChild(checkbox);
-    listItem.appendChild(label);
-    listItem.appendChild(deleteButton); // Correct line
-    listItem.appendChild(saveButton);
-    shoppingList.appendChild(listItem);
+        listItem.appendChild(checkbox);
+        listItem.appendChild(label);
+        listItem.appendChild(deleteButton); // Correct line
+        listItem.appendChild(saveButton);
+        shoppingList.appendChild(listItem);
 
-     // Event listener for checkbox
-     checkbox.addEventListener('change', () => {
-         label.classList.toggle('completed', checkbox.checked);
-     });
+        // Event listener for checkbox
+        checkbox.addEventListener('change', () => {
+            label.classList.toggle('completed', checkbox.checked);
+            saveShoppingList(); // Save after checking/unchecking
+        });
 
-     // Event listener for delete button
-     deleteButton.addEventListener('click', () => {
-         shoppingList.removeChild(listItem);
-     });
-
+        // Event listener for delete button
+        deleteButton.addEventListener('click', () => {
+            shoppingList.removeChild(listItem);
+            saveShoppingList(); // Save after deletion
+        });
 
         // Event listener for edit button
         editButton.addEventListener('click', () => {
@@ -480,30 +486,30 @@ function loadTasksFromLocalStorage() {
             label.contentEditable = false;
             editButton.style.display = 'inline-block';
             saveButton.style.display = 'none';
+            saveShoppingList(); // Save after edit
         });
     }
 
+    // Event listener for add button
+    addButton.addEventListener('click', () => {
+        const itemText = shoppingInput.value.trim();
+        if (itemText !== '') {
+            createShoppingItem(itemText); 
+            shoppingInput.value = '';
+            saveShoppingList(); // Save after adding new item
+        }
+    });
 
- // Event listener for add button
- addButton.addEventListener('click', () => {
-     const itemText = shoppingInput.value.trim();
-     if (itemText !== '') {
-         createShoppingItem(itemText);
-         shoppingInput.value = '';
-     }
- });
+    // Event listener for enter key
+    shoppingInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            addButton.click();
+        }
+    });
 
- // Event listener for enter key
- shoppingInput.addEventListener('keypress', (event) => {
-     if (event.key === 'Enter') {
-         addButton.click();
-     }
- });
-
-     // Load shopping list on page load
+    // Load shopping list on page load
     loadShoppingList();
 }
-
 
 
 
