@@ -174,13 +174,12 @@ setInterval(updateDateTime, 60000);
 
 //Weather API js start
 
-const city = 'Tampere'; // Your city
-
 // First, fetch the API key from the backend
 fetch('/api-key')
   .then(response => response.json())
   .then(data => {
     const apiKey = data.apiKey;  // Now you have the API key from the backend
+    const city = "Tampere"; // Your city
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     fetch(url)
@@ -190,11 +189,13 @@ fetch('/api-key')
         const temp = Math.round(weatherData.main.temp); // Round to nearest whole number
         const iconCode = weatherData.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-
         const windSpeed = Math.round(weatherData.wind.speed); // Wind speed in meters per second, rounded
+        const description = weatherData.weather[0].description; // Get weather description
 
-        // Display the temperature and wind speed
-        document.getElementById('weather-text').innerText = `${temp}°C, Wind: ${windSpeed} m/s`;
+        // Update weather details
+        document.getElementById("temperature").innerText = `${temp}°C`;
+        document.getElementById("description").innerText = description.charAt(0).toUpperCase() + description.slice(1);
+        document.getElementById("wind").innerText = `Wind: ${windSpeed} m/s`;
 
         // Display the weather icon
         const iconElement = document.getElementById('weather-icon');

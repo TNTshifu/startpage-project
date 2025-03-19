@@ -374,6 +374,7 @@ main { /*THIS IS IN THE HOME PAGE*/
 
 /*Weather API css*/
 
+/*
 #weather-container {
     display: flex;
     align-items: center;
@@ -381,11 +382,40 @@ main { /*THIS IS IN THE HOME PAGE*/
     gap: 10px;
     font-size: 24px;
     margin-top: 10px;
+}*/
+
+#weather-container {
+    max-width: 300px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+#city-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 #weather-icon {
     width: 80px;
     height: 80px;
+    margin-right: 10px;
+}
+
+#weather-details p {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 
