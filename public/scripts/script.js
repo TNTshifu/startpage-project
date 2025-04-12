@@ -469,18 +469,21 @@ function loadTasksFromLocalStorage() {
 
     listItem.appendChild(checkbox);
     listItem.appendChild(label);
-    listItem.appendChild(deleteButton); // Correct line
+    listItem.appendChild(deleteButton);
+    listItem.appendChild(editButton);
     listItem.appendChild(saveButton);
     shoppingList.appendChild(listItem);
 
      // Event listener for checkbox
      checkbox.addEventListener('change', () => {
          label.classList.toggle('completed', checkbox.checked);
+         saveShoppingList(); // Save after check/uncheck
      });
 
      // Event listener for delete button
      deleteButton.addEventListener('click', () => {
          shoppingList.removeChild(listItem);
+         saveShoppingList(); // Save after delete
      });
 
 
@@ -497,6 +500,7 @@ function loadTasksFromLocalStorage() {
             label.contentEditable = false;
             editButton.style.display = 'inline-block';
             saveButton.style.display = 'none';
+            saveShoppingList(); // Save after editing text
         });
     }
 
@@ -507,6 +511,7 @@ function loadTasksFromLocalStorage() {
      if (itemText !== '') {
          createShoppingItem(itemText);
          shoppingInput.value = '';
+         saveShoppingList(); // Save after adding
      }
  });
 

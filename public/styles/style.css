@@ -39,6 +39,12 @@
     text-align: left;
 }
 
+#presentingdate-text {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+}
+
 #datetime {
     font-family: Arial, sans-serif;
     color: #333;
@@ -251,16 +257,16 @@ h1 {
 h2 {
     font-family: 'Oswald-Light', sans-serif;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     text-decoration: underline;
 }
 
 h3 {
     font-family: 'Oswald-Light', sans-serif;
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     text-decoration: underline;
-    margin-top: 0;
+    margin: 5px;
     padding-left: 18px;
 
 }
@@ -535,7 +541,7 @@ main { /*THIS IS IN THE HOME PAGE*/
   }
   
   .column li {
-      margin-bottom: 10px;
+      margin-bottom: 7px;
   }
 
   .column a {
@@ -561,15 +567,18 @@ main { /*THIS IS IN THE HOME PAGE*/
     margin-left: 5px;
   }
 
+  /*
   .column ol::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 25%; /* Adjust width as needed */
+    width: 25%; 
     height: 1px;
     background-color: #ddd;
-}
+    } 
+
+*/
 
 /* Remove the last line */
 .column ol:last-child::after {
