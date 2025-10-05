@@ -16,64 +16,8 @@
 }
 
 
-
 .content-wrapper {
     padding: 10px; /*To create space*/
-}
-
-#welcomeandate-container {
-    max-width: 300px;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    margin: auto;
-}
-
-#welcome-text {
-    margin-top: 10px;
-    padding: 2px;
-    min-height: 50px; /* Adjust as needed */
-    text-align: left;
-}
-
-#presentingdate-text {
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: left;
-}
-
-#datetime {
-    font-family: Arial, sans-serif;
-    color: #333;
-}
-
-#datetime i {
-    margin-right: 8px; 
-    color: #6c757d;
-    font-size: 1.2rem; /* Make the icons a bit bigger */
-}
-
-#time i {
-    margin-right: 8px; 
-    color: #6c757d;
-    font-size: 1.2rem; /* Make the icons a bit bigger */
-}
-
-#datetime #date {
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-}
-
-#datetime #time {
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
 }
 
 
@@ -340,11 +284,77 @@ main { /*THIS IS IN THE HOME PAGE*/
     padding-left: 40px;
 }
 
+#welcomeandate-container {
+    max-width: 300px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+}
+
+#welcome-text {
+    margin-top: 10px;
+    padding: 2px;
+    min-height: 50px; /* Adjust as needed */
+    text-align: left;
+}
+
+#presentingdate-text {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+}
+
+#datetime {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+#datetime i {
+    margin-right: 8px; 
+    color: #6c757d;
+    font-size: 1.2rem; /* Make the icons a bit bigger */
+}
+
+#time i {
+    margin-right: 8px; 
+    color: #6c757d;
+    font-size: 1.2rem; /* Make the icons a bit bigger */
+}
+
+#datetime #date {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+#datetime #time {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
 /* Middle column containing the virtual cat pet */
 .middle-column {
     display: flex;
     flex-direction: column; /* Stack vertically */
     align-items: flex-start;
+}
+
+#virtualCat-container {
+    max-width: 300px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
 }
 
 #cat {
@@ -383,7 +393,6 @@ main { /*THIS IS IN THE HOME PAGE*/
     padding-right: 40px;
 
 }
-
 
 
 .websitelinks-container .column {
