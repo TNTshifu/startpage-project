@@ -280,8 +280,8 @@ main { /*THIS IS IN THE HOME PAGE*/
     display: flex;
     flex-direction: column; /* Stack welcome text and datetime vertically */
     align-items: flex-start;
-    width: 35%; /* Left column takes up about half the container */
-    padding-left: 40px;
+    width: auto;
+    padding: 10px;
 }
 
 #welcomeandate-container {
@@ -343,7 +343,7 @@ main { /*THIS IS IN THE HOME PAGE*/
 /* Minicalendar */
 
 .calendar-column {
-    padding-left: 20px;
+    padding: 10px;
 }
 
   .calendar {
@@ -409,6 +409,7 @@ main { /*THIS IS IN THE HOME PAGE*/
     display: flex;
     flex-direction: column; /* Stack vertically */
     align-items: flex-start;
+    padding: 10px;
 }
 
 #virtualCat-container {
@@ -454,8 +455,8 @@ main { /*THIS IS IN THE HOME PAGE*/
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 35%; /* Right column takes up the other half of the container */
-    padding-right: 40px;
+    width: auto;
+    padding: 10px;
 
 }
 
