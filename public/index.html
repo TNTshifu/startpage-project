@@ -64,12 +64,15 @@
             </div>
         </div>
 
-
         <div class="middle-column">
             <div id="virtualCat-container">
                 <div id="cat" aria-hidden="true"></div>
                 <div id="fish" draggable="true"></div>
             </div>
+        </div>
+
+        <div id="quote-box">
+            <span id="quote-text">&nbsp;</span>
         </div>
 
         <div class="right-column">
@@ -301,6 +304,40 @@ generateCalendar();
 </script>
 
 
+<!--  motivational quotes-script for testing, remember to move in to sript.js -->
+
+<script>
+const quotes = [
+  "“Don't be pushed by your problems; be led by your dreams.”",
+  "“Be brave enough to suck at something new.”",
+  "“Everyday you can take a tiny step in the right direction.”",
+  "“Every day do something that will inch you closer to a better tomorrow.”",
+  "“The distance between dreams and reality is called action.”",
+  "“When life closes a door, open it again. It’s a door, that’s how they work.”",
+  "“If you think you are too small to make a difference, try sleeping in a room with a mosquito.” - Dalai Lama",
+  "“Success in life requires hope, strength, and humor.”",
+  "“It’s not that I’m so smart, it’s just that I stay with problems longer.” —Albert Einstein",
+  "“It always seems impossible until it’s done.” —Nelson Mandela",
+  "“It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.” —Charles Darwin",
+  "“How wonderful it is that nobody need wait a single moment before starting to improve the world.” —Anne Frank",
+  "“You must be the change you wish to see in the world.” —Mahatma Gandhi",
+  "“The greatest discovery of all time is that a person can change his future by merely changing his attitude.” —Oprah Winfrey",
+    "“Out of clutter, find simplicity. From discord, find harmony. In the middle of difficulty lies opportunity.” —Albert Einstein",
+    "“Failure is success in progress.” —Albert Einstein",
+    "“Progress has little to do with speed, but much to do with direction.” —Unknown",
+    "“Doing the best at this moment puts you in the best place for the next moment.” —Oprah Winfrey",
+    "“Logic will get you from A to B. Imagination will take you everywhere.” —Albert Einstein",
+];
+
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const quoteText = document.getElementById("quote-text");
+  quoteText.textContent = quotes[randomIndex];
+
+  // Trigger the fade-in only for the text
+  requestAnimationFrame(() => {
+    quoteText.classList.add("visible");
+  });
+</script>
 
 </body>
 

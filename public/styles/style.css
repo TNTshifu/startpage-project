@@ -39,8 +39,8 @@ body {
 }
 
 header {
-    min-height: 6vh;
-    line-height: 6vh;
+    min-height: 3vh;
+    line-height: 3vh;
     font-size: 1 rem;
     background-color: var(--primary-color);
     display: flex; /* Enable Flexbox */
@@ -275,73 +275,7 @@ main { /*THIS IS IN THE HOME PAGE*/
     
 }
 
-/* Left column containing welcome text and datetime */
-.left-column {
-    display: flex;
-    flex-direction: column; /* Stack welcome text and datetime vertically */
-    align-items: flex-start;
-    width: auto;
-    padding: 10px;
-}
-
-#welcomeandate-container {
-    max-width: 300px;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    margin: auto;
-}
-
-#welcome-text {
-    margin-top: 10px;
-    padding: 2px;
-    min-height: 50px; /* Adjust as needed */
-    text-align: left;
-}
-
-#presentingdate-text {
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: left;
-}
-
-#datetime {
-    font-family: Arial, sans-serif;
-    color: #333;
-}
-
-#datetime i {
-    margin-right: 8px; 
-    color: #6c757d;
-    font-size: 1.2rem; /* Make the icons a bit bigger */
-}
-
-#time i {
-    margin-right: 8px; 
-    color: #6c757d;
-    font-size: 1.2rem; /* Make the icons a bit bigger */
-}
-
-#datetime #date {
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-}
-
-#datetime #time {
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-}
-
-
 /* Minicalendar */
-
 .calendar-column {
     padding: 10px;
 }
@@ -403,7 +337,102 @@ main { /*THIS IS IN THE HOME PAGE*/
     background: #e0e0e0;
   }
 
+/* Left column containing welcome text and datetime */
+.left-column {
+    display: flex;
+    flex-direction: column; /* Stack welcome text and datetime vertically */
+    align-items: flex-start;
+    width: auto;
+    padding: 10px;
+}
 
+#welcomeandate-container {
+    width: 240px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+}
+
+#welcome-text {
+    margin-top: 10px;
+    padding: 2px;
+    min-height: 50px; /* Adjust as needed */
+    text-align: left;
+}
+
+#presentingdate-text {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+}
+
+#datetime {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+#datetime i {
+    margin-right: 8px; 
+    color: #6c757d;
+    font-size: 1.2rem; /* Make the icons a bit bigger */
+}
+
+#time i {
+    margin-right: 8px; 
+    color: #6c757d;
+    font-size: 1.2rem; /* Make the icons a bit bigger */
+}
+
+#datetime #date {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+#datetime #time {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+
+/* quote-box */
+  #quote-box {
+    font-family: "Georgia", serif;
+    font-size: 1em;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 80%;
+    max-width: 300px;
+    min-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+  /* Fade-in for the text */
+  #quote-text {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+
+  #quote-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  
 /* Middle column containing the virtual cat pet */
 .middle-column {
     display: flex;
