@@ -339,6 +339,71 @@ main { /*THIS IS IN THE HOME PAGE*/
     align-items: center;
 }
 
+
+/* Minicalendar */
+
+.calendar-column {
+    padding-left: 20px;
+}
+
+  .calendar {
+    width: 200px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .calendar:hover {
+    transform: scale(1.03);
+  }
+
+  .calendar-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 7px 0;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    font-weight: bold;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .day-name {
+    font-weight: bold;
+    color: #666;
+  }
+
+  .day {
+    padding: 5px;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    transition: background 0.2s;
+  }
+
+  .day.today {
+    background: var(--primary-color);
+    color: var(--text-color);
+    font-weight: bold;
+  }
+
+  .day.other-month {
+    color: #ccc;
+  }
+
+  .day:hover {
+    background: #e0e0e0;
+  }
+
+
 /* Middle column containing the virtual cat pet */
 .middle-column {
     display: flex;
